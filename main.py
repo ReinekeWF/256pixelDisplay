@@ -38,7 +38,7 @@ f16 = (255,255,255)		#weiss hige
 
 
 
-"""vorlage = [	[,,,,,,,,,,,,,,,],		#1 
+"""vorlage = [	[,,,,,,,,,,,,,,,],		#1
 			[,,,,,,,,,,,,,,,],		#2
 			[,,,,,,,,,,,,,,,],		#3
 			[,,,,,,,,,,,,,,,],		#4
@@ -46,7 +46,7 @@ f16 = (255,255,255)		#weiss hige
 			[,,,,,,,,,,,,,,,],		#6
 			[,,,,,,,,,,,,,,,],		#7
 			[,,,,,,,,,,,,,,,],		#8
-			[,,,,,,,,,,,,,,,],		#9 
+			[,,,,,,,,,,,,,,,],		#9
 			[,,,,,,,,,,,,,,,],		#10
 			[,,,,,,,,,,,,,,,],		#11
 			[,,,,,,,,,,,,,,,],		#12
@@ -56,7 +56,7 @@ f16 = (255,255,255)		#weiss hige
 			[,,,,,,,,,,,,,,,]		#16
 		]
 """
-farbtest = [	[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#1 
+farbtest = [	[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#1
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#2
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#3
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#4
@@ -64,7 +64,7 @@ farbtest = [	[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],	
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#6
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#7
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#8
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#9 
+			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#9
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#10
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#11
 			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#12
@@ -92,33 +92,42 @@ fox = [	[blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,
 		[blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau	]]
 
 
-
-def sortieren(bildin):
-	for zeile in range(0,16,2):
-		zeile2 = bildin[zeile]
-		bildin[zeile] = zeile2[::-1]
-		
-	return bildin
+##
+# schreibe eine 256 pixel matrix auf das s-verkabelte display. transformiere es dabei so das es richtig angezeigt wird
+def write256(bildin):
+	for zeile in range(0,16):
+		if !(zeile % 2):
+			pixel.write(bildin[zeile])
+		else
+		    pixel.write(bildin[zeile[::-1]])
 
 def pixelClear():
-	for x in range(0,16*16):
-		pixel[x] = (0,0,0)
-	pixel.write()
+	pixel.write([(0,0,0)] * 256)
+
+def strobo():
+	for s in range(0,3): # drei mal strobofizieren
+		farbe = ((urandom.getrandbits(8),urandom.getrandbits(8),urandom.getrandbits(8)))
+		write256([farbe] * 256)
+		time.sleep(0.1)
+		pixelClear()
+		time.sleep(0.05)
 
 while True:
-
 #zufall für auswahl der programme
 	#programm = 6
 	programm = urandom.getrandbits(3)
-	
+
+	strobo()
+
+if False:
 #farbtest
 	if programm == 6:
 		print("farbtest")
 		sort = sortieren(farbtest)
 		pos = 0
 		for inhalt in sort:
-			for teil in inhalt:		
-				pixel[pos] = teil 	
+			for teil in inhalt:
+				pixel[pos] = teil
 				pos = pos + 1
 		pixel.write()
 		time.sleep(5)
@@ -132,8 +141,8 @@ while True:
 		sort = sortieren(fox)
 		pos = 0
 		for inhalt in sort:
-			for teil in inhalt:		
-				pixel[pos] = teil 	
+			for teil in inhalt:
+				pixel[pos] = teil
 				pos = pos + 1
 		pixel.write()
 		time.sleep(5)
@@ -145,14 +154,14 @@ while True:
 		for p in range(0,3):
 			bild = []
 			farbe = ((urandom.getrandbits(8),urandom.getrandbits(8),urandom.getrandbits(8)))
-			for y in range(0,16*16):	
-				bild.append(farbe)			
-										
-						
-			for s in range(0,12):				
-				pos = 0			
+			for y in range(0,16*16):
+				bild.append(farbe)
+
+
+			for s in range(0,12):
+				pos = 0
 				for inhalt in bild:
-					pixel[pos] = inhalt 	
+					pixel[pos] = inhalt
 					pos = pos + 1
 				pixel.write()
 				time.sleep(0.05)
@@ -163,37 +172,37 @@ while True:
 		bild = []
 		farbe = ((urandom.getrandbits(8),urandom.getrandbits(8),urandom.getrandbits(8)))
 		for y in range(0,16):
-			zeile = []		
-			for x in range(0,16):	
+			zeile = []
+			for x in range(0,16):
 				if y == x:
 					zeile.append(farbe)
-				else:			
+				else:
 					zeile.append((0,0,0))
 			bild.append(zeile)
 
 		pos = 0
 		sort = sortieren(bild)
 		for inhalt in sort:
-			for teil in inhalt:		
-				pixel[pos] = teil 	
+			for teil in inhalt:
+				pixel[pos] = teil
 				pos = pos + 1
 		pixel.write()
 		time.sleep(3)
-		pixelClear()	
+		pixelClear()
 #random 2 + sort
 	elif programm == 2:
-		print("random 2 + sort")			
+		print("random 2 + sort")
 		bild = []
 		for y in range(0,16):
-			zeile = []		
-			for x in range(0,16):	
+			zeile = []
+			for x in range(0,16):
 				zeile.append((urandom.getrandbits(8),urandom.getrandbits(8),urandom.getrandbits(8)))
 			bild.append(zeile)
 
 		pos = 0
 		for inhalt in bild:
 			for teil in inhalt:
-				pixel[pos] = teil 	
+				pixel[pos] = teil
 				pos = pos + 1
 				pixel.write()
 			time.sleep(0.1)
@@ -202,8 +211,8 @@ while True:
 		pos = 0
 		sort = sortieren(bild)
 		for inhalt in sort:
-			for teil in inhalt:		
-				pixel[pos] = teil 	
+			for teil in inhalt:
+				pixel[pos] = teil
 				pos = pos + 1
 				pixel.write()
 			#time.sleep(0.1)
@@ -216,7 +225,7 @@ while True:
 			row = x * 16
 			for y in range(0, 16):
 				pixel[row + y] = (urandom.getrandbits(8),urandom.getrandbits(8),urandom.getrandbits(8))
-					
+
 				pixel.write()
 				time.sleep(0.3)
 
@@ -224,10 +233,10 @@ while True:
 			row = x * 16
 			for y in range(0,16):
 				pixel[row + y] = (0,0,0)
-					
+
 				pixel.write()
 				time.sleep(0.2)
-#random bits
+#random bitsbild
 	elif programm == 0:
 		print("random bits")
 		w = 0
@@ -236,20 +245,18 @@ while True:
 			if w > 5:
 				w = 0
 			else:
-				
-				for i in range(0,w): 
+
+				for i in range(0,w):
 					pos = urandom.getrandbits(8)
 					if pos > 16*16:
-						pos = 16*16		
+						pos = 16*16
 					pixel[pos] = (urandom.getrandbits(8),urandom.getrandbits(8),urandom.getrandbits(8))
 				pixel.write()
 				time.sleep(0.2)
-				
-				pixelClear()		
+
+				pixelClear()
 				time.sleep(0.2)
 		pixelClear()
 	else:
 		print("tut nichts")
 		pixelClear()
-			
-

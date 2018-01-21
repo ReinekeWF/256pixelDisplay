@@ -95,11 +95,10 @@ fox = [	[blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,
 ##
 # schreibe eine 256 pixel matrix auf das s-verkabelte display. transformiere es dabei so das es richtig angezeigt wird
 def write256(bildin):
-	for zeile in range(0,16):
-		if !(zeile % 2):
-			pixel.write(bildin[zeile])
-		else
-		    pixel.write(bildin[zeile[::-1]])
+    ausgabe = bildin
+	for zeile in range(0,16,2):
+		ausgabe[zeile] = ausgabe[zeile][::-1]
+	pixel.write(ausgabe)
 
 def pixelClear():
 	pixel.write([(0,0,0)] * 256)

@@ -38,85 +38,102 @@ f16 = (255,255,255)		#weiss hige
 
 
 
-"""vorlage = [	[,,,,,,,,,,,,,,,],		#1
-			[,,,,,,,,,,,,,,,],		#2
-			[,,,,,,,,,,,,,,,],		#3
-			[,,,,,,,,,,,,,,,],		#4
-			[,,,,,,,,,,,,,,,],		#5
-			[,,,,,,,,,,,,,,,],		#6
-			[,,,,,,,,,,,,,,,],		#7
-			[,,,,,,,,,,,,,,,],		#8
-			[,,,,,,,,,,,,,,,],		#9
-			[,,,,,,,,,,,,,,,],		#10
-			[,,,,,,,,,,,,,,,],		#11
-			[,,,,,,,,,,,,,,,],		#12
-			[,,,,,,,,,,,,,,,],		#13
-			[,,,,,,,,,,,,,,,],		#14
-			[,,,,,,,,,,,,,,,],		#15
-			[,,,,,,,,,,,,,,,]		#16
+"""vorlage = [
+            ,,,,,,,,,,,,,,,		#1
+			,,,,,,,,,,,,,,,		#2
+			,,,,,,,,,,,,,,,		#3
+			,,,,,,,,,,,,,,,		#4
+			,,,,,,,,,,,,,,,		#5
+			,,,,,,,,,,,,,,,		#6
+			,,,,,,,,,,,,,,,		#7
+			,,,,,,,,,,,,,,,		#8
+			,,,,,,,,,,,,,,,		#9
+			,,,,,,,,,,,,,,,		#10
+			,,,,,,,,,,,,,,,		#11
+			,,,,,,,,,,,,,,,		#12
+			,,,,,,,,,,,,,,,		#13
+			,,,,,,,,,,,,,,,		#14
+			,,,,,,,,,,,,,,,		#15
+			,,,,,,,,,,,,,,,		#16
 		]
 """
-farbtest = [	[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#1
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#2
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#3
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#4
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#5
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#6
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#7
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#8
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#9
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#10
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#11
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#12
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#13
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#14
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16],		#15
-			[f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16]		#16
+farbtest = 	[
+            f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#1
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#2
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#3
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#4
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#5
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#6
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#7
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#8
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#9
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#10
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#11
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#12
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#13
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#14
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16,		#15
+			f01,f02,f03,f04,f05,f06,f07,f08,f09,f10,f11,f12,f13,f14,f15,f16		#16
 		]
 
-fox = [	[blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau	],
-		[blau,	orange,	orange,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	orange,	orange,blau	],
-		[blau,	orange,	orange,	orange,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	orange,	orange,	orange,	blau	],
-		[blau,	orange,	weiss,	orange,	orange,	blau,	blau,	blau,	blau,	blau,	blau,	orange,	orange,	weiss,	orange,	blau	],
-		[blau,	orange,	weiss,	weiss,	orange,	orange,	blau,	blau,	blau,	blau,	orange,	orange,	weiss,	weiss,	orange,	blau	],
-		[blau,	orange,	weiss,	weiss,	weiss,	orange,	orange,	orange,	orange,	orange,	orange,	weiss,	weiss,	weiss,	orange,	blau	],
-		[blau,	orange,	weiss,	weiss,	weiss,	weiss,	orange,	orange,	orange,	orange,	weiss,	weiss,	weiss,	weiss,	orange,	blau	],
-		[blau,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	blau	],
-		[blau,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	blau	],
-		[blau,	orange,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	orange,	blau	],
-		[blau,	weiss,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	weiss,	blau	],
-		[blau,	weiss,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	weiss,	blau	],
-		[blau,	weiss,	weiss,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	weiss,	weiss,	blau	],
-		[blau,	blau,	weiss,	weiss,	weiss,	orange,	orange,	schwarz,schwarz,orange,	orange,	weiss,	weiss,	weiss,	blau,	blau	],
-		[blau,	blau,	blau,	weiss,	weiss,	orange,	orange,	schwarz,schwarz,orange,	orange,	weiss,	weiss,	blau,	blau,	blau	],
-		[blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau	]]
+fox = [
+		blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau	,
+		blau,	orange,	orange,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	orange,	orange,blau	,
+		blau,	orange,	orange,	orange,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	orange,	orange,	orange,	blau	,
+		blau,	orange,	weiss,	orange,	orange,	blau,	blau,	blau,	blau,	blau,	blau,	orange,	orange,	weiss,	orange,	blau	,
+		blau,	orange,	weiss,	weiss,	orange,	orange,	blau,	blau,	blau,	blau,	orange,	orange,	weiss,	weiss,	orange,	blau	,
+		blau,	orange,	weiss,	weiss,	weiss,	orange,	orange,	orange,	orange,	orange,	orange,	weiss,	weiss,	weiss,	orange,	blau	,
+		blau,	orange,	weiss,	weiss,	weiss,	weiss,	orange,	orange,	orange,	orange,	weiss,	weiss,	weiss,	weiss,	orange,	blau	,
+		blau,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	blau	,
+		blau,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	blau	,
+		blau,	orange,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	orange,	blau	,
+		blau,	weiss,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	orange,	schwarz,orange,	orange,	orange,	weiss,	blau	,
+		blau,	weiss,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	weiss,	blau	,
+		blau,	weiss,	weiss,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	orange,	weiss,	weiss,	blau	,
+		blau,	blau,	weiss,	weiss,	weiss,	orange,	orange,	schwarz,schwarz,orange,	orange,	weiss,	weiss,	weiss,	blau,	blau	,
+		blau,	blau,	blau,	weiss,	weiss,	orange,	orange,	schwarz,schwarz,orange,	orange,	weiss,	weiss,	blau,	blau,	blau	,
+		blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau,	blau	]
 
 
 ##
 # schreibe eine 256 pixel matrix auf das s-verkabelte display. transformiere es dabei so das es richtig angezeigt wird
-def write256(bildin):
-    ausgabe = bildin
-	for zeile in range(0,16,2):
-		ausgabe[zeile] = ausgabe[zeile][::-1]
-	pixel.write(ausgabe)
+##
+def write256(bild):
+	for y in range (0, 16):
+		if not (y % 2):
+			xr = 16
+			for x in range (0, 16):
+				xr = xr - 1
+				pixel[xr + (y * 16)] = bild[x + (y * 16)]
+		else:
+			for x in range (0, 16):
+				pixel[x + (y * 16)] = bild[x + (y * 16)]
+	pixel.write()
 
 def pixelClear():
-	pixel.write([(0,0,0)] * 256)
+	pixel.fill((0,0,0))
+	pixel.write()
+	5
 
-def strobo():
+def show_strobo():
 	for s in range(0,3): # drei mal strobofizieren
 		farbe = ((urandom.getrandbits(8),urandom.getrandbits(8),urandom.getrandbits(8)))
 		write256([farbe] * 256)
 		time.sleep(0.1)
 		pixelClear()
-		time.sleep(0.05)
+		time.sleep(1)
+
+def show_fox():
+	write256(fox)
+	time.sleep(5)
 
 while True:
 #zufall für auswahl der programme
 	#programm = 6
 	programm = urandom.getrandbits(3)
 
-	strobo()
+	show_strobo()
+	show_fox()
 
 if False:
 #farbtest
